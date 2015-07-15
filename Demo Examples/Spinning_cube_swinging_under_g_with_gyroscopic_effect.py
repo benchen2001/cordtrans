@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d as p3
 import matplotlib.animation as animation
 import sys
-sys.path.insert(0, 'C:/Documents and Settings/user/My Documents/tony/Scripts/cordtrans/Physics_and_Animation_Modules_Library')
+sys.path.insert(0, '../Physics_and_Animation_Modules_Library')
 
 import RBPlotFunctionV5 as RBPlot
 import RGCordTransV15 as RG
