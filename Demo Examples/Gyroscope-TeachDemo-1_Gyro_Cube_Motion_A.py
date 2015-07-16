@@ -7,6 +7,8 @@ sys.path.insert(0, '../Physics_and_Animation_Modules_Library')
 import RBPlotFunctionV5 as RBPlot
 import RGCordTransV15 as RG
 
+print testparameter
+
 b = RG.RigidBodyObject()
 #set para here
 b.tn=1.0

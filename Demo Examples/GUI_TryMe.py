@@ -12,9 +12,10 @@ master = TK.Tk()
 master.wm_title("Gyroscope Motion, Rigid Body Intergrator, and Orientation Estimation Platform")
 master.minsize(width=555, height=150)
 
+
 def TD1callback():
-    variables= {}
-    execfile( "Gyroscope-TeachDemo-1_Gyro_Cube_Motion_A.py", variables)#    variables2 )
+    variables= {'testparameter':e1.get()}
+    execfile( "Gyroscope-TeachDemo-1_Gyro_Cube_Motion_A.py", variables)#    variables2 
     print variables('line_ani')
 def TD2callback():
     variables= {}
@@ -74,6 +75,14 @@ bt_TD9 = TK.Button(master, text="Demo - Noise included (still)", command=TD9call
 bt_TD9.pack()
 bt_TD10 = TK.Button(master, text="Demo - Angular Velocity Trail in the body frame", command=TD10callback)
 bt_TD10.pack()
+
+#%% Set initial conditions
+labelte1=TK.StringVar()
+labelte1.set("enter wx here")
+labele1=TK.Label(master, textvariable=labelte1)
+labele1.pack()
+e1 = TK.Entry(master)
+e1.pack()
 
 #%% Text
 text = TK.Text(master,height=2,font=("Helvetica", 10, "italic"))
