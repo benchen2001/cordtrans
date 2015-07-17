@@ -12,6 +12,13 @@ master = TK.Tk()
 master.wm_title("Gyroscope Motion, Rigid Body Intergrator, and Orientation Estimation Platform")
 master.minsize(width=555, height=150)
 
+Frame1 = TK.Frame(master,bg="blue",width=176, height=157)
+Frame1.grid(row=0,column=0)
+Frame2 = TK.Frame(master,bg="green",width=176, height=157)
+Frame2.grid(row=0,column=1)
+
+
+
 #%% callbacks
 def TD1callback():
     variables= {'testparameter':e1.get()}
@@ -54,43 +61,44 @@ def TD10callback():
     execfile( "AngularVelocityTrail_in_body_frame_compare_ABmethods.py", variables)#    variables2 )
     print variables('line_ani')
 
-#%% Buttons
-bt_TD1 = TK.Button(master, text="Demo - precesion & nutation - regular motion", command=TD1callback)
+#%% Frame 2 widgets
+
+f2title = TK.Label(Frame2,text="Demo Examples",bg="white")
+f2title.pack()
+bt_TD1 = TK.Button(Frame2, text="Demo - precesion & nutation - regular motion", command=TD1callback)
 bt_TD1.pack()
-bt_TD7 = TK.Button(master, text="Demo - precesion & nutation - classical ring motion", command=TD7callback)
+bt_TD7 = TK.Button(Frame2, text="Demo - precesion & nutation - classical ring motion", command=TD7callback)
 bt_TD7.pack()
-bt_TD8 = TK.Button(master, text="Demo - precesion & nutation - classical wave motion", command=TD8callback)
+bt_TD8 = TK.Button(Frame2, text="Demo - precesion & nutation - classical wave motion", command=TD8callback)
 bt_TD8.pack()
-bt_TD2 = TK.Button(master, text="Demo(static) - Space Body Cone", command=TD2callback)
+bt_TD2 = TK.Button(Frame2, text="Demo(static) - Space Body Cone", command=TD2callback)
 bt_TD2.pack()
-bt_TD3 = TK.Button(master, text="Demo - circular locus", command=TD3callback)
+bt_TD3 = TK.Button(Frame2, text="Demo - circular locus", command=TD3callback)
 bt_TD3.pack()
-bt_TD4 = TK.Button(master, text="Demo - AB methods compare", command=TD4callback)
+bt_TD4 = TK.Button(Frame2, text="Demo - AB methods compare", command=TD4callback)
 bt_TD4.pack()
-bt_TD5 = TK.Button(master, text="Demo - BC methods compare", command=TD5callback)
+bt_TD5 = TK.Button(Frame2, text="Demo - BC methods compare", command=TD5callback)
 bt_TD5.pack()
-bt_TD6 = TK.Button(master, text="Demo - Noise included (moving)", command=TD6callback)
+bt_TD6 = TK.Button(Frame2, text="Demo - Noise included (moving)", command=TD6callback)
 bt_TD6.pack()
-bt_TD9 = TK.Button(master, text="Demo - Noise included (still)", command=TD9callback)
+bt_TD9 = TK.Button(Frame2, text="Demo - Noise included (still)", command=TD9callback)
 bt_TD9.pack()
-bt_TD10 = TK.Button(master, text="Demo - Angular Velocity Trail in the body frame", command=TD10callback)
+bt_TD10 = TK.Button(Frame2, text="Demo - Angular Velocity Trail in the body frame", command=TD10callback)
 bt_TD10.pack()
 
-#%% Set initial conditions
-labelte1=TK.StringVar()
-labelte1.set("enter wx here")
-labele1=TK.Label(master, textvariable=labelte1)
-labele1.grid(row=0)
-labele1.pack()
-e1 = TK.Entry(master)
-e1.grid(row=0,column=1)
-e1.pack()
+#%% Frame 1 Set initial conditions
+f1title = TK.Label(Frame1,text="set parameters",bg="white")
+f1title.grid(row=0,column=0,columnspan=2)
+TK.Label(Frame1,text="wx=").grid(row=1,column=0)
+TK.Entry(Frame1).grid(row=1,column=1)
+TK.Label(Frame1,text="wy=").grid(row=2,column=0)
+TK.Entry(Frame1).grid(row=2,column=1)
 
 #%% Text
 text = TK.Text(master,height=2,font=("Helvetica", 10, "italic"))
 text.insert(TK.INSERT, "\nProduced by whymranderson.blogspot.tw")
 #text.insert(TK.END, "Bye Bye.....")
-text.pack()
+text.grid(row=1,column=0,columnspan=2)
 
 #%% Image
 '''
