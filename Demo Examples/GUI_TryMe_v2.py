@@ -12,9 +12,9 @@ master = TK.Tk()
 master.wm_title("Gyroscope Motion, Rigid Body Intergrator, and Orientation Estimation Platform")
 master.minsize(width=555, height=150)
 
-Frame1 = TK.Frame(master,bg="blue",width=176, height=157)
+Frame1 = TK.Frame(master,bg="blue")#,width=176, height=157)
 Frame1.grid(row=0,column=0)
-Frame2 = TK.Frame(master,bg="green",width=176, height=157)
+Frame2 = TK.Frame(master,bg="green")#,width=176, height=157)
 Frame2.grid(row=0,column=1)
 
 
@@ -60,6 +60,10 @@ def TD10callback():
     variables= {}
     execfile( "AngularVelocityTrail_in_body_frame_compare_ABmethods.py", variables)#    variables2 )
     print variables('line_ani')
+def fetch_n_execute_callback():
+    variables= {'set_wx':E1.get(),'set_wy':E2.get(),'set_g':E3.get(),'set_tf':E4.get()}
+    execfile( "Gyroscope-TeachDemo-custumed_parameters.py", variables)#    variables2 )
+    print variables('line_ani')
 
 #%% Frame 2 widgets
 
@@ -89,10 +93,22 @@ bt_TD10.pack()
 #%% Frame 1 Set initial conditions
 f1title = TK.Label(Frame1,text="set parameters",bg="white")
 f1title.grid(row=0,column=0,columnspan=2)
-TK.Label(Frame1,text="wx=").grid(row=1,column=0)
-TK.Entry(Frame1).grid(row=1,column=1)
+TK.Label(Frame1,text="wx = (radian/second)").grid(row=1,column=0)
+E1=TK.Entry(Frame1)
+E1.grid(row=1,column=1)
 TK.Label(Frame1,text="wy=").grid(row=2,column=0)
-TK.Entry(Frame1).grid(row=2,column=1)
+E2 = TK.Entry(Frame1)
+E2.grid(row=2,column=1)
+TK.Label(Frame1,text="gravity").grid(row=3,column=0)
+E3 = TK.Entry(Frame1)
+E3.grid(row=3,column=1)
+TK.Label(Frame1,text="stop time (in seconds) =").grid(row=4,column=0)
+E4 = TK.Entry(Frame1)
+E4.grid(row=4,column=1)
+
+B2=TK.Button(Frame1,text="run",command=fetch_n_execute_callback)
+B2.grid(row=5,columnspan=2)
+#E2.get()
 
 #%% Text
 text = TK.Text(master,height=2,font=("Helvetica", 10, "italic"))
