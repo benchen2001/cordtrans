@@ -12,9 +12,9 @@ master = TK.Tk()
 master.wm_title("Gyroscope Motion, Rigid Body Intergrator, and Orientation Estimation Platform")
 master.minsize(width=555, height=150)
 
-Frame1 = TK.Frame(master,bg="blue")#,width=176, height=157)
+Frame1 = TK.Frame(master)#,bg="blue")#,width=176, height=157)
 Frame1.grid(row=0,column=0)
-Frame2 = TK.Frame(master,bg="green")#,width=176, height=157)
+Frame2 = TK.Frame(master)#,bg="green")#,width=176, height=157)
 Frame2.grid(row=0,column=1)
 
 
@@ -64,6 +64,11 @@ def fetch_n_execute_callback():
     variables= {'set_wx':E1.get(),'set_wy':E2.get(),'set_g':E3.get(),'set_tf':E4.get()}
     execfile( "Gyroscope-TeachDemo-custumed_parameters.py", variables)#    variables2 )
     print variables('line_ani')
+def TD11callback():
+    variables= {}
+    execfile( "Spinning_cube_swinging_under_g_with_gyroscopic_effect.py", variables)#    variables2 )
+    print variables('line_ani')    
+    
 
 #%% Frame 2 widgets
 
@@ -89,6 +94,8 @@ bt_TD9 = TK.Button(Frame2, text="Demo - Noise included (still)", command=TD9call
 bt_TD9.pack()
 bt_TD10 = TK.Button(Frame2, text="Demo - Angular Velocity Trail in the body frame", command=TD10callback)
 bt_TD10.pack()
+bt_TD11 = TK.Button(Frame2, text="Demo - Spinning cube swinging \n- under gravity with gyroscopic effect", command=TD11callback)
+bt_TD11.pack()
 
 #%% Frame 1 Set initial conditions
 f1title = TK.Label(Frame1,text="set parameters",bg="white")
