@@ -23,7 +23,7 @@ b.UsePY_ODE=0
 b.orien = np.array([-np.radians(55),0,0])
 b.GenerateDependentVariables()
 #set case here(after dep var is created)
-b.setcase(3,0,-4)
+b.setcase(2,0,-4)
 b.HasbunEulerEquationODEsolve()
 #b.IncludeNoiseInOmega()
 b.EulerDCMiter()

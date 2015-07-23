@@ -14,7 +14,7 @@ b.setcase(1)
 b.HasbunEulerEquationODEsolve()
 #b.eulerW2bodyW()
 #b.w_body_hasbun = b.w_body_hasbun*0
-b.IncludeNoiseInOmega(10)
+b.IncludeNoiseInOmega(1)
 b.EulerDCMiter()
 b.directDCMiter()
 b.DrawOption['C_axes'] = True
